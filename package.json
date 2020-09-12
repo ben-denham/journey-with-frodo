@@ -1,0 +1,23 @@
+{
+  "name": "journey-with-frodo",
+  "version": "0.1.0",
+  "homepage" : "http://ben-denham.github.io/journey-with-frodo",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-jss": "^10.0.0-alpha.25",
+    "react-scripts": "1.0.x",
+    "clsx": "1.1.1",
+    "formik": "2.1.5",
+    "yup": "0.29.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

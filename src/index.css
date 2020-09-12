@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Aniron;
+  src: url(fonts/Aniron.ttf);
+}
+
+@font-face {
+  font-family: Ringbearer;
+  src: url(fonts/RingbearerMedium.ttf);
+}
+
+body {
+  padding: 0;
+  font-family: Aniron, sans-serif;
+  background: url(images/parchment.jpg);
+}

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  frontend:
+    build: .
+    working_dir: /code
+    volumes:
+      - ./:/code
+    ports:
+      - 3000:3000
+    user: node
+    command: npm start
