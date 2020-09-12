@@ -5,7 +5,7 @@ run: docker-build
 
 deps:
 	docker-compose run --rm frontend npm install
-build-site:
-	docker-compose run --rm frontend npm run build
+deploy:
+	docker-compose run --rm frontend npm run deploy
 bash:
 	docker-compose run --rm frontend bash
