@@ -49,11 +49,11 @@ button:focus, input[type="submit"]:focus {
 
 /* Handle */
 #root ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #444;
   border-radius: 7px;
 }
 
 /* Handle on hover */
 #root ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #111;
 }

@@ -16,8 +16,8 @@ const useStyles = createUseStyles({
     margin: 'auto',
     background: 'url(images/parchment.jpg);',
     border: '1px solid black',
-    width: 3200 / 3.8,
-    height: 2400 / 3.8,
+    width: 3200 / 4.5,
+    height: 2400 / 4.5,
   },
 });
 

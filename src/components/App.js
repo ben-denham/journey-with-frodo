@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   app: {
     margin: '5px auto',
     width: '85%',
-    maxWidth: '1280px',
+    maxWidth: '1024px',
     textAlign: 'center',
   },
   title: {
@@ -60,7 +60,9 @@ function App() {
         Open Source on GitHub
       </a>
       <br/>
-      Fan project unrelated to Middle-earth Enterprises or New Line Cinema. Book text © Middle-earth Enterprises. <a href="https://www.cleanpng.com/png-frodo-baggins-the-lord-of-the-rings-the-fellowship-422730/">Frodo image</a> © New Line Cinema.
+      Fan project unrelated to Middle-earth Enterprises or New Line Cinema.
+      <br/>
+      Book text © Middle-earth Enterprises. <a href="https://www.cleanpng.com/png-frodo-baggins-the-lord-of-the-rings-the-fellowship-422730/">Frodo image</a> © New Line Cinema.
     </div>
   </div>
   );

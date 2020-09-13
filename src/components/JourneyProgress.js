@@ -11,7 +11,7 @@ import MiddleEarthMap from './MiddleEarthMap';
 
 const useStyles = createUseStyles({
   journeyTitle: {
-    fontSize: '2.5em',
+    fontSize: '2em',
     marginBottom: 0,
   },
   dayCounter: {
@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
   },
   imageWrapper: {
     margin: 'auto',
-    width: '370px',
+    width: '300px',
     '& img': {
       width: '100%',
     },
@@ -66,26 +66,24 @@ const useStyles = createUseStyles({
     }
   },
   events: {
-    height: '355px',
-    width: '370px',
+    height: '285px',
+    width: '300px',
     overflowY: 'scroll',
     fontSize: '0.8em',
     margin: 'auto',
     textAlign: 'left',
-    borderTop: '1px solid black',
-    borderBottom: '1px solid black',
+    borderTop: '2px solid black',
+    borderBottom: '2px solid black',
     marginBottom: '0.6em',
     '& td': {
-      borderTop: '1px solid black',
-      background: '#ffdeb555',
+      borderTop: '1px solid #555555',
     },
     '& tr:first-child td': {
       borderTop: 'none',
     }
   },
   currentEvent: {
-    textDecoration: 'underline',
-    background: '#ffdeb599',
+    fontWeight: 'bold',
   },
   grid: {
     display: 'flex',
@@ -100,7 +98,7 @@ function Spotify({spotifyId}) {
   return <iframe
            title="spotify"
            src={'https://open.spotify.com/embed/track/' + spotifyId}
-           width="370" height="80" frameBorder="0" allowtransparency="true"
+           width="300" height="80" frameBorder="0" allowtransparency="true"
            allow="encrypted-media" />
 }
 
@@ -134,16 +132,16 @@ function EventList({events}) {
     <table>
       <tbody>
         {events.past.map(([eventDate, eventText]) =>
-          <tr key={eventText}><td><strong>{eventDate}:</strong> {eventText}</td></tr>
+          <tr key={eventText}><td><em>{eventDate}:</em> {eventText}</td></tr>
         )}
         {events.current.slice(0, 1).map(([eventDate, eventText]) =>
-          <tr ref={scrollTargetRef} key={eventText} className={classes.currentEvent}><td><strong>{eventDate}:</strong> {eventText}</td></tr>
+          <tr ref={scrollTargetRef} key={eventText} className={classes.currentEvent}><td><em>{eventDate}:</em> {eventText}</td></tr>
         )}
         {events.current.slice(1).map(([eventDate, eventText]) =>
-          <tr key={eventText} className={classes.currentEvent}><td><strong>{eventDate}:</strong> {eventText}</td></tr>
+          <tr key={eventText} className={classes.currentEvent}><td><em>{eventDate}:</em> {eventText}</td></tr>
         )}
         {events.future.map(([eventDate, eventText]) =>
-          <tr key={eventText}><td><strong>{eventDate}:</strong> {eventText}</td></tr>
+          <tr key={eventText}><td><em>{eventDate}:</em> {eventText}</td></tr>
         )}
       </tbody>
     </table>
