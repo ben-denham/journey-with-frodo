@@ -175,7 +175,7 @@ function Links({shareQuote}) {
       <FacebookIcon round={true} />
     </FacebookShareButton>
     <TwitterShareButton url={window.location.href} title={shareQuote}
-                        hashtags={['#journeywithfrodo']}>
+                        hashtags={['journeywithfrodo']}>
       <TwitterIcon round={true} />
     </TwitterShareButton>
   </div>
