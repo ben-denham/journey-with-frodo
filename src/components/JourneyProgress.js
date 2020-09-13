@@ -122,7 +122,6 @@ function EventList({events}) {
         const targetOffset = scrollTargetRef.current.offsetTop;
         // Scroll to slightly above target, but not negative.
         const scrollTarget = Math.max((targetOffset -100), 0);
-        console.log(scrollTarget)
         scrollerRef.current.scrollTop = scrollTarget;
       }, 500);
     }
