@@ -13,3 +13,47 @@ body {
   font-family: Aniron, sans-serif;
   background: url(images/parchment.jpg);
 }
+
+a, a:visited {
+  color: black;
+  text-decoration: underline;
+}
+
+button, input[type="submit"] {
+  font-family: Ringbearer;
+  font-size: 1.5em;
+  color: white;
+  background: #422a0d;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+}
+button:focus, input[type="submit"]:focus {
+  outline: 3px solid #b7a58f;
+}
+
+.easy-button-button {
+  padding: 1px 6px;
+}
+
+/* width */
+#root ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+#root ::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+#root ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 7px;
+}
+
+/* Handle on hover */
+#root ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

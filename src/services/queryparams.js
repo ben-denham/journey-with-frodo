@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import * as yup from "yup";
 
 function getQueryParams() {
@@ -20,10 +20,23 @@ export const QueryParamsContext = React.createContext();
 export function QueryParamsProvider({children}) {
   const [queryParams, setQueryParams] = useState(getQueryParams());
 
+  // Whenever the user presses the back button after we've pushed
+  // state, update the query params.
+  useEffect(function() {
+    function handleBackNavigation() {
+      setQueryParams(getQueryParams());
+    }
+    window.addEventListener("popstate", handleBackNavigation);
+    return function cleanup() {
+      window.removeEventListener("popstate", handleBackNavigation);
+    }
+  }, []);
+
   function updateQueryParams(queryParams) {
     const queryString = queryParams ? (new URLSearchParams(queryParams)).toString() : '';
     const newPath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + queryString;
-    window.history.pushState({path: newPath},'', newPath);
+    window.history.pushState({path: newPath}, '', newPath);
+    // Update query params.
     setQueryParams(getQueryParams());
   }
 
