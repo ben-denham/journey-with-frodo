@@ -66,6 +66,7 @@ function MiddleEarthMap({frodoMapYXPx}) {
            zoom={0} maxZoom={-7} minZoom={-100} zoomSnap={0}
            attributionControl={false}
            ref={mapRef} onlayeradd={fitToBounds}
+           tap={!L.Browser.mobile} dragging={!L.Browser.mobile}
            className={classes.map}>
     <ImageOverlay url={map} bounds={mapBounds} />
     <ScaleControl />
