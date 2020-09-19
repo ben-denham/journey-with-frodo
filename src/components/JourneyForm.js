@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
     fontSize: '1.2em',
     background: '#e5ceb2',
     border: '2px solid black',
+    borderRadius: 12,
     '&:focus': {
       outline: '3px solid #b7a58f',
     },
@@ -51,6 +52,7 @@ const useStyles = createUseStyles({
     extend: 'input',
     fontFamily: 'Ringbearer',
     width: '80%',
+    padding: '0.2em',
   },
   // Submit button.
   beginButton: {

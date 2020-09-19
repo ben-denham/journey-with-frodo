@@ -23,7 +23,7 @@ button, input[type="submit"] {
   font-family: Ringbearer;
   font-size: 1.5em;
   color: white;
-  background: #3c2b0d;
+  background: url(images/bark-pattern.png);
   border: 2px solid #cccccc;
   border-radius: 15px;
   padding: 15px;
@@ -35,6 +35,7 @@ button:focus, input[type="submit"]:focus {
 
 .easy-button-button {
   padding: 1px 6px;
+  background: none;
 }
 
 /* width */

@@ -5,6 +5,7 @@ import copy from 'copy-to-clipboard';
 
 import linkIcon from '../images/link.svg';
 import frodo from '../images/frodo-silhouette.png';
+// Bark source: https://commons.wikimedia.org/wiki/File:Hunt._Elm_bark_1.jpg
 import bark from '../images/bark-pattern.png';
 
 import {QueryParamsContext} from '../services/queryparams';
@@ -64,7 +65,15 @@ const useStyles = createUseStyles({
   linksWrapper: {
     '& button': {
       margin: '0 5px',
-      height: 64,
+      height: 68,
+      borderRadius: '34px !important',
+      border: '2px solid #cccccc !important',
+      '&.react-share__ShareButton': {
+        width: 68,
+        '& circle': {
+          display: 'none',
+        },
+      },
     },
   },
   newButton: {
@@ -73,8 +82,7 @@ const useStyles = createUseStyles({
     cursor: 'pointer',
   },
   linkButton: {
-    background: '#3c2b0d',
-    width: 64,
+    width: 68,
     borderRadius: 32,
     border: 'none',
     padding: 0,
