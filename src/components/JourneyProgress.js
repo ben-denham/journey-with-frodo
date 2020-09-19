@@ -1,4 +1,5 @@
 import React, {useContext, useEffect} from 'react';
+import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
 import {FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton} from 'react-share';
 import copy from 'copy-to-clipboard';
@@ -11,15 +12,19 @@ import bark from '../images/bark-pattern.png';
 import {QueryParamsContext} from '../services/queryparams';
 import {getJourneyInfo} from '../services/journeyinfo';
 import MiddleEarthMap from './MiddleEarthMap';
+import {mediumBreakpoint, largeBreakpoint} from '../breakpoints';
 
 const useStyles = createUseStyles({
   journeyTitle: {
-    fontSize: '2em',
+    fontSize: '1.3em',
     marginBottom: 0,
+    [mediumBreakpoint]: {
+      fontSize: '1.7em',
+    },
   },
   dayCounter: {
     fontFamily: 'Ringbearer',
-    fontSize: '2em',
+    fontSize: '1.7em',
     margin: '0.5em 0',
   },
   progressBar: {
@@ -44,16 +49,17 @@ const useStyles = createUseStyles({
   message: {
     fontSize: '1.3em',
     marginTop: 0,
-    lineHeight: '1.3em',
+    lineHeight: '1.5em',
   },
   reading: {
     marginTop: '0.4em',
     fontSize: '0.6em',
     display: 'block',
+    lineHeight: '2em',
   },
   imageWrapper: {
     margin: 'auto',
-    width: '300px',
+    width: '100%',
     '& img': {
       width: '100%',
     },
@@ -64,7 +70,7 @@ const useStyles = createUseStyles({
   },
   linksWrapper: {
     '& button': {
-      margin: '0 5px',
+      margin: '0 5px 10px 5px',
       height: 68,
       borderRadius: '34px !important',
       border: '2px solid #cccccc !important',
@@ -81,6 +87,8 @@ const useStyles = createUseStyles({
     display: 'inline-block',
     verticalAlign: 'top',
     cursor: 'pointer',
+    height: 'initial !important',
+    minHeight: 68,
   },
   linkButton: {
     width: 68,
@@ -96,15 +104,13 @@ const useStyles = createUseStyles({
     }
   },
   events: {
-    height: '285px',
-    width: '300px',
+    width: '100%',
     overflowY: 'scroll',
-    fontSize: '0.8em',
+    fontSize: '0.75em',
     margin: 'auto',
     textAlign: 'left',
     borderTop: '2px solid black',
     borderBottom: '2px solid black',
-    marginBottom: '0.6em',
     '& td': {
       borderTop: '1px solid #555555',
     },
@@ -115,12 +121,37 @@ const useStyles = createUseStyles({
   currentEvent: {
     fontWeight: 'bold',
   },
-  grid: {
-    display: 'flex',
+  mainGrid: {
     marginBottom: '1.2em',
+    [largeBreakpoint]: {
+      display: 'flex',
+    },
   },
-  gridCol: {
-    flex: 1,
+  mainGridItem: {
+    marginBottom: '0.5em',
+    '&:last-child': {
+      marginBottom: 0,
+    },
+    [largeBreakpoint]: {
+      marginBottom: 0,
+      marginRight: '0.5em',
+      '&:last-child': {
+        marginRight: 0,
+      },
+    },
+  },
+  sidebarGrid: {
+    [largeBreakpoint]: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: 507,
+    }
+  },
+  sidebarGridItem: {
+    marginBottom: '0.5em',
+    '&:last-child': {
+      marginBottom: 0,
+    },
   },
 });
 
@@ -138,7 +169,8 @@ function Spotify({spotifyId}) {
   return <iframe
            title="spotify"
            src={'https://open.spotify.com/embed/track/' + spotifyId}
-           width="300" height="80" frameBorder="0" allowtransparency="true"
+           style={{marginBottom: -10}}
+           width="100%" height="80" frameBorder="0" allowtransparency="true"
            allow="encrypted-media" />
 }
 
@@ -150,7 +182,7 @@ function JourneyImage({imageInfo}) {
   </div>
 }
 
-function EventList({events}) {
+function EventList({events, className, style}) {
   const classes = useStyles();
   const scrollerRef = React.createRef();
   const scrollTargetRef = React.createRef();
@@ -161,13 +193,13 @@ function EventList({events}) {
       setTimeout(() => {
         const targetOffset = scrollTargetRef.current.offsetTop;
         // Scroll to slightly above target, but not negative.
-        const scrollTarget = Math.max((targetOffset -100), 0);
+        const scrollTarget = Math.max((targetOffset -50), 0);
         scrollerRef.current.scrollTop = scrollTarget;
       }, 500);
     }
   })
 
-  return <div className={classes.events} ref={scrollerRef}>
+  return <div className={clsx(classes.events, className)} style={style} ref={scrollerRef}>
     <table>
       <tbody>
         {events.past.map(([eventDate, eventText]) =>
@@ -201,9 +233,6 @@ function Links({shareQuote}) {
   }
 
   return <div className={classes.linksWrapper}>
-    <button className={classes.newButton} onClick={handleNewButtonClick}>
-      Track a New Journey
-    </button>
     <button className={classes.linkButton} onClick={handleLinkButtonClick}>
       <img src={linkIcon} alt="Copy link to clipboard" />
     </button>
@@ -215,6 +244,9 @@ function Links({shareQuote}) {
                         hashtags={['journeywithfrodo']}>
       <TwitterIcon round={true} />
     </TwitterShareButton>
+    <button className={classes.newButton} onClick={handleNewButtonClick}>
+      Track a New Journey
+    </button>
   </div>
 }
 
@@ -251,14 +283,20 @@ function JourneyProgress() {
         Chapter {reading.chapterNumber}: {reading.chapterTitle}
       </span>
     </p>
-    <div className={classes.grid}>
-      <div className={classes.gridCol}>
+    <div className={classes.mainGrid}>
+      <div className={classes.mainGridItem} style={{flex: 2}}>
         <MiddleEarthMap frodoMapYXPx={frodoMapYXPx} />
       </div>
-      <div className={classes.gridCol}>
-        <Spotify spotifyId={spotifyId} />
-        <EventList events={events} />
-        <JourneyImage imageInfo={imageInfo} />
+      <div className={classes.mainGridItem} style={{flex: 1}}>
+        <div className={classes.sidebarGrid}>
+          <div className={classes.sidebarGridItem}>
+            <Spotify spotifyId={spotifyId} />
+          </div>
+          <EventList className={classes.sidebarGridItem} style={{flex: 1}} className={classes.sidebarGridItem} events={events} />
+          <div className={classes.sidebarGridItem}>
+            <JourneyImage className={classes.sidebarGridItem}  imageInfo={imageInfo} />
+          </div>
+        </div>
       </div>
     </div>
     <Links shareQuote={`${title} - ${dayMessage} - See my progress on Journey with Frodo!`} />

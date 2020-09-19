@@ -7,17 +7,21 @@ import {QueryParamsContext, QueryParamsSchema} from '../services/queryparams';
 
 import JourneyForm from './JourneyForm';
 import JourneyProgress from './JourneyProgress';
+import {mediumBreakpoint} from '../breakpoints';
 
 const useStyles = createUseStyles({
   app: {
     margin: '5px auto',
-    width: '85%',
+    width: '90%',
     maxWidth: '1024px',
     textAlign: 'center',
   },
   title: {
-    fontSize: '3em',
+    fontSize: '1.5em',
     marginBottom: '0.1em',
+    [mediumBreakpoint]: {
+      fontSize: '2.3em',
+    },
   },
   titleImage: {
     height: '2em',

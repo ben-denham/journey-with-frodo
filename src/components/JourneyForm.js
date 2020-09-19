@@ -4,16 +4,22 @@ import clsx from 'clsx';
 import {Formik, yupToFormErrors} from 'formik';
 
 import {QueryParamsContext, QueryParamsSchema} from '../services/queryparams';
-
+import {mediumBreakpoint} from '../breakpoints';
 
 const useStyles = createUseStyles({
   subtitle: {
-    fontSize: '1.7em',
-    lineHeight: '1.8em',
+    fontSize: '1em',
+    lineHeight: '1.4em',
+    [mediumBreakpoint]: {
+      fontSize: '1.3em',
+    },
   },
   // Inputs.
   input: {
-    fontSize: '1.2em',
+    fontSize: '0.8em',
+    [mediumBreakpoint]: {
+      fontSize: '1.2em',
+    },
     background: '#e5ceb2',
     border: '2px solid black',
     borderRadius: 12,
@@ -25,7 +31,7 @@ const useStyles = createUseStyles({
     },
   },
   inputLabel: {
-    fontSize: '1.5em',
+    fontSize: '1.2em',
   },
   // Errors.
   error: {
@@ -34,6 +40,11 @@ const useStyles = createUseStyles({
   errorLabel: {
     color: '#a61b08',
     minHeight: '2em',
+    fontSize: '0.8em',
+    lineHeight: '1.4em',
+    [mediumBreakpoint]: {
+      fontSize: '1em',
+    },
   },
   // Title input.
   titleInput: {
@@ -44,7 +55,9 @@ const useStyles = createUseStyles({
   },
   // Date inputs.
   datesWrapper: {
-    display: 'flex',
+    [mediumBreakpoint]: {
+      display: 'flex',
+    },
   },
   dateWidget: {
     flex: 1,
