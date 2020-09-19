@@ -68,6 +68,7 @@ const useStyles = createUseStyles({
       height: 68,
       borderRadius: '34px !important',
       border: '2px solid #cccccc !important',
+      verticalAlign: 'top',
       '&.react-share__ShareButton': {
         width: 68,
         '& circle': {
