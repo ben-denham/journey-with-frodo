@@ -9,6 +9,7 @@ import {QueryParamsContext, QueryParamsSchema} from '../services/queryparams';
 const useStyles = createUseStyles({
   subtitle: {
     fontSize: '1.7em',
+    lineHeight: '1.8em',
   },
   // Inputs.
   input: {
@@ -75,9 +76,10 @@ function JourneyForm() {
     }
   }
 
+  const initialValues = Object.assign({title: '', start: '', end: ''}, queryParams)
   const classes = useStyles();
   return <Formik
-           initialValues={queryParams}
+           initialValues={initialValues}
            initialErrors={initialErrors}
            validationSchema={QueryParamsSchema}
            onSubmit={(values) => {
