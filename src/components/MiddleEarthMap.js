@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
     marginTop: ((2400 / 3200) * 100) + '%',
   },
   map: {
-    background: 'url(images/parchment.jpg);',
+    background: 'none',
     border: '1px solid black',
     position: 'absolute',
     top: 0,
