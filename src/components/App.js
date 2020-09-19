@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {createUseStyles} from 'react-jss';
 
-import frodo from '../images/frodo-silhouette.png'
+import frodo from '../images/frodo-silhouette.png';
 
 import {QueryParamsContext, QueryParamsSchema} from '../services/queryparams';
 

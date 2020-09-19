@@ -4,6 +4,8 @@ import {FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton} from
 import copy from 'copy-to-clipboard';
 
 import linkIcon from '../images/link.svg';
+import frodo from '../images/frodo-silhouette.png';
+import bark from '../images/bark-pattern.png';
 
 import {QueryParamsContext} from '../services/queryparams';
 import {getJourneyInfo} from '../services/journeyinfo';
@@ -18,6 +20,25 @@ const useStyles = createUseStyles({
     fontFamily: 'Ringbearer',
     fontSize: '2em',
     margin: '0.5em 0',
+  },
+  progressBar: {
+    height: 24,
+    background: 'url(' + bark + ')',
+    margin: '20px 0px',
+    borderRadius: 12,
+    border: '2px solid #cccccc',
+  },
+  progressBarInner: {
+    borderRadius: 12,
+    height: '100%',
+    background: '#24ce0077',
+    position: 'relative',
+    '& img': {
+      height: 64,
+      position: 'absolute',
+      top: -20,
+      right: -18,
+    }
   },
   message: {
     fontSize: '1.3em',
@@ -52,7 +73,7 @@ const useStyles = createUseStyles({
     cursor: 'pointer',
   },
   linkButton: {
-    background: '#422a0d',
+    background: '#3c2b0d',
     width: 64,
     borderRadius: 32,
     border: 'none',
@@ -93,6 +114,16 @@ const useStyles = createUseStyles({
     flex: 1,
   },
 });
+
+function ProgressBar({progress}) {
+  const classes = useStyles();
+  const progressPercent = Math.max(Math.min((progress * 100), 100), 0)
+  return <div className={classes.progressBar}>
+    <div className={classes.progressBarInner} style={{width: progressPercent + '%'}}>
+      <img src={frodo} alt="Frodo" />
+    </div>
+  </div>
+}
 
 function Spotify({spotifyId}) {
   return <iframe
@@ -186,6 +217,7 @@ function JourneyProgress() {
     currentDay,
     daysUntil,
     totalDays,
+    proportionComplete,
     message,
     reading,
     frodoMapYXPx,
@@ -202,6 +234,7 @@ function JourneyProgress() {
   return <div>
     <h2 className={classes.journeyTitle}>{title}</h2>
     <p className={classes.dayCounter}>{dayMessage}</p>
+    <ProgressBar progress={proportionComplete} />
     <p className={classes.message}>
       {message}
       <span className={classes.reading}>

@@ -15,12 +15,18 @@ export function getJourneyInfo(queryParams) {
   const endDate = moment(Date.parse(end));
   const totalDays = dayLength(startDate, endDate);
 
-  let daysUntil = null;
+  let proportionComplete;
   let currentDay = Number.parseInt(queryParams.day || '', 10);
   if (isNaN(currentDay)) {
     let currentDate = moment(new Date());
     currentDay = dayLength(startDate, currentDate);
+    proportionComplete = (currentDate - startDate) / (endDate - startDate);
   }
+  else {
+    proportionComplete = currentDay / totalDays;
+  }
+
+  let daysUntil = null;
   if (currentDay <= 0) {
     daysUntil = Math.abs(currentDay - 1);
     currentDay = null;
@@ -63,6 +69,7 @@ export function getJourneyInfo(queryParams) {
     currentDay,
     daysUntil,
     totalDays,
+    proportionComplete,
     message,
     reading,
     frodoMapYXPx,

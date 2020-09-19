@@ -23,8 +23,8 @@ button, input[type="submit"] {
   font-family: Ringbearer;
   font-size: 1.5em;
   color: white;
-  background: #422a0d;
-  border: 2px solid black;
+  background: #3c2b0d;
+  border: 2px solid #cccccc;
   border-radius: 15px;
   padding: 15px;
   cursor: pointer;
