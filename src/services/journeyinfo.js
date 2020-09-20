@@ -166,7 +166,7 @@ function getRealDateForSRDatestamp(SRDatestamp, startRealDate, endRealDate) {
   return moment(startRealDate).add(dateDiff);
 }
 
-function getNearEvents(events, currentSRDatestamp, currentDate, startDate, endDate) {
+function getNearEvents(events, currentSRDatestamp, startDate, endDate) {
   let firstCurrentEventIndex, lastCurrentEventIndex;
   for (var i = 0; i < events.length; i++) {
     let event = events[i];
@@ -219,19 +219,7 @@ function getNearEvents(events, currentSRDatestamp, currentDate, startDate, endDa
     }
   });
 
-  const nearEvents = pastEvents.concat(currentEvents, futureEvents);
-
-  // Mark the events we need to prefix with "year" markers.
-  let activeYear = currentDate.year();
-  nearEvents.forEach((event) => {
-    const eventYear = event.date.year();
-    if (eventYear !== activeYear) {
-      event.isNewYear = true;
-      activeYear = eventYear;
-    }
-  })
-
-  return nearEvents;
+  return pastEvents.concat(currentEvents, futureEvents);
 }
 
 export async function getJourneyInfo(queryParams) {
@@ -240,7 +228,6 @@ export async function getJourneyInfo(queryParams) {
   const endDate = moment(end, DATE_FORMAT);
 
   const {
-    currentDate,
     currentDay,
     daysUntil,
     totalDays,
@@ -262,7 +249,7 @@ export async function getJourneyInfo(queryParams) {
     currentStep = step;
   }
 
-  const nearEvents = getNearEvents(events, currentSRDatestamp, currentDate, startDate, endDate);
+  const nearEvents = getNearEvents(events, currentSRDatestamp, startDate, endDate);
 
   return {
     title,

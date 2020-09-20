@@ -206,18 +206,11 @@ function EventList({events, className, style}) {
     <table>
       <tbody>
         {events.map(({date, description, isCurrent, isFirstCurrent, isNewYear}) =>
-          <React.Fragment key={description}>
-            { isNewYear ?
-              <tr key={date.year()}>
-                <td className={classes.yearEvent}>{date.year()}</td>
-              </tr>
-              : null }
-            <tr ref={isFirstCurrent ? scrollTargetRef : null}>
-              <td className={clsx({[classes.currentEvent]: isCurrent})}>
-                {date.format('DD MMMM')}: {description}
-              </td>
-            </tr>
-          </React.Fragment>
+          <tr key={description} ref={isFirstCurrent ? scrollTargetRef : null}>
+            <td className={clsx({[classes.currentEvent]: isCurrent})}>
+              {date.format('DD MMMM YYYY')}: {description}
+            </td>
+          </tr>
         )}
       </tbody>
     </table>
