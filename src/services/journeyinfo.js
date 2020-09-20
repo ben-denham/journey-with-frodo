@@ -105,6 +105,9 @@ const getSRDatestamp = (() => {
 const DATE_FORMAT = 'YYYY-MM-DD';
 
 function journeyDuration(dateA, dateB) {
+  // Drop timezone from dates to avoid daylight-savings differences.
+  dateA = moment.utc(dateA.format(DATE_FORMAT), DATE_FORMAT);
+  dateB = moment.utc(dateB.format(DATE_FORMAT), DATE_FORMAT);
   // The last day is part of the journey, so add 1 day.
   return moment.duration(dateB - dateA).add(1, 'day');
 }
