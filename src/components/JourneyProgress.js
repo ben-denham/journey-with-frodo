@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import clsx from 'clsx';
 import {createUseStyles} from 'react-jss';
 import {FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton} from 'react-share';
@@ -118,6 +118,9 @@ const useStyles = createUseStyles({
       borderTop: 'none',
     }
   },
+  yearEvent: {
+    textDecoration: 'underline',
+  },
   currentEvent: {
     fontWeight: 'bold',
   },
@@ -202,17 +205,19 @@ function EventList({events, className, style}) {
   return <div className={clsx(classes.events, className)} style={style} ref={scrollerRef}>
     <table>
       <tbody>
-        {events.past.map(([eventDate, eventText]) =>
-          <tr key={eventText}><td><em>{eventDate}:</em> {eventText}</td></tr>
-        )}
-        {events.current.slice(0, 1).map(([eventDate, eventText]) =>
-          <tr ref={scrollTargetRef} key={eventText} className={classes.currentEvent}><td><em>{eventDate}:</em> {eventText}</td></tr>
-        )}
-        {events.current.slice(1).map(([eventDate, eventText]) =>
-          <tr key={eventText} className={classes.currentEvent}><td><em>{eventDate}:</em> {eventText}</td></tr>
-        )}
-        {events.future.map(([eventDate, eventText]) =>
-          <tr key={eventText}><td><em>{eventDate}:</em> {eventText}</td></tr>
+        {events.map(({date, description, isCurrent, isFirstCurrent, isNewYear}) =>
+          <React.Fragment key={description}>
+            { isNewYear ?
+              <tr key={date.year()}>
+                <td className={classes.yearEvent}>{date.year()}</td>
+              </tr>
+              : null }
+            <tr ref={isFirstCurrent ? scrollTargetRef : null}>
+              <td className={clsx({[classes.currentEvent]: isCurrent})}>
+                {date.format('DD MMMM')}: {description}
+              </td>
+            </tr>
+          </React.Fragment>
         )}
       </tbody>
     </table>
@@ -253,6 +258,32 @@ function Links({shareQuote}) {
 function JourneyProgress() {
   const classes = useStyles();
   const {queryParams} = useContext(QueryParamsContext);
+  const [journeyInfo, setJourneyInfo] = useState(null);
+
+  function formatReading({volume, book, chapterNumber, chapterTitle}) {
+    let result = volume;
+    if (book) {
+      result += ' - Book ' + book;
+    }
+    if (chapterNumber) {
+      result += ' - Chapter ' + chapterNumber;
+    }
+    result += ': ' + chapterTitle;
+    return result;
+  }
+
+  useEffect(() => {
+    async function updateJourneyInfo() {
+      const fetchedJourneyInfo = await getJourneyInfo(queryParams);
+      setJourneyInfo(fetchedJourneyInfo);
+    }
+    updateJourneyInfo();
+  }, [queryParams]);
+
+  if (!journeyInfo) {
+    return '';
+  }
+
   const {
     title,
     currentDay,
@@ -265,7 +296,7 @@ function JourneyProgress() {
     spotifyId,
     imageInfo,
     events,
-  } = getJourneyInfo(queryParams);
+  } = journeyInfo;
   const dayMessage = (
     currentDay ?
     `Day ${currentDay.toLocaleString()} of ${totalDays.toLocaleString()}` :
@@ -279,8 +310,7 @@ function JourneyProgress() {
     <p className={classes.message}>
       {message}
       <span className={classes.reading}>
-        {reading.volume} - Book {reading.book} -
-        Chapter {reading.chapterNumber}: {reading.chapterTitle}
+        {formatReading(reading)}
       </span>
     </p>
     <div className={classes.mainGrid}>
@@ -292,7 +322,7 @@ function JourneyProgress() {
           <div className={classes.sidebarGridItem}>
             <Spotify spotifyId={spotifyId} />
           </div>
-          <EventList className={classes.sidebarGridItem} style={{flex: 1}} className={classes.sidebarGridItem} events={events} />
+          <EventList className={classes.sidebarGridItem} style={{flex: 1}} events={events} />
           <div className={classes.sidebarGridItem}>
             <JourneyImage className={classes.sidebarGridItem}  imageInfo={imageInfo} />
           </div>

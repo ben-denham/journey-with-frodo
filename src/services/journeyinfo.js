@@ -1,29 +1,133 @@
 import moment from 'moment';
+import Papa from 'papaparse';
 
-function dayLength(dateA, dateB) {
-  let dayDiff = moment.duration(dateB.diff(dateA)).asDays();
-  // Even if the start and end are the same, there is still 1 day.
-  return Math.floor(dayDiff) + 1;
+// FILE HANDLING.
+
+async function loadCsv(path) {
+  return new Promise((resolve, reject) => {
+    Papa.parse(path, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: (results) => {
+        resolve(results);
+      },
+      error: (error) => {
+        reject(error);
+      }
+    });
+  });
 }
 
-export function getJourneyInfo(queryParams) {
-  const {title, start, end} = queryParams;
 
-  // Use Date.parse to support whatever the date inputs saved, and use
-  // moment for calendar date subtraction.
-  const startDate = moment(Date.parse(start));
-  const endDate = moment(Date.parse(end));
-  const totalDays = dayLength(startDate, endDate);
+// LOTR DATE HANDLING.
 
-  let proportionComplete;
-  let currentDay = Number.parseInt(queryParams.day || '', 10);
+const getSRDatestamp = (() => {
+
+  function isLeapYear(ta_year) {
+    return (ta_year % 4 === 0) && (ta_year % 100 !== 0);
+  }
+
+  function getSRDatestamp({ta_year, month, day}) {
+    /* Given a Third-Age year, and Shire Reckoning month + day, return
+       a Shire-Reckoning datestamp (number of days since start of
+       third age). */
+    if (!ta_year && !month && !day) {
+      return 0;
+    }
+
+    ta_year = parseInt(ta_year, 10);
+    const days_before_year = (ta_year * 365) + Math.floor(ta_year / 4) - Math.floor(ta_year / 100);
+    let total_days = days_before_year;
+    // Handle special days.
+    if (month === 'special') {
+      switch (day) {
+        case 'year_start_yule':
+          total_days += 1;
+          break;
+        case 'one_lithe':
+          total_days += 2 + (6 * 30);
+          break;
+        case 'midyear':
+          total_days += 3 + (6 * 30);
+          break;
+        case 'overlithe':
+          if (!isLeapYear(ta_year)) {
+            throw Error('No overlithe in this year.');
+          }
+          total_days += 4 + (6 * 30);
+          break;
+        case 'two_lithe':
+          total_days += 4 + (6 * 30);
+          if (isLeapYear(ta_year)) {
+            total_days += 1;
+          }
+          break;
+        case 'year_end_yule':
+          total_days += 365;
+          if (isLeapYear(ta_year)) {
+            total_days += 1;
+          }
+          break;
+        default:
+          throw Error('Invalid special day.');
+      }
+    }
+    // Handle normal months.
+    else {
+      month = parseInt(month, 10);
+      day = parseInt(day, 10);
+      if (!(month >= 1 && month <= 12 && day >= 1 && day <= 30)) {
+        throw Error('Invalid month or day.');
+      }
+      // Base is one day (2 yule, first day of year) + 30 days in each month.
+      let days_before_month = 1 + (30 * (month - 1));
+      // If we are after the Lithedays, add them to the total.
+      if (month > 6) {
+        // At least 3 Lithe days every year.
+        days_before_month += 3;
+        // Add one more day for Overlithe in leap years.
+        if (isLeapYear(ta_year)) {
+          days_before_month += 1;
+        }
+      }
+      total_days += days_before_month + day;
+    }
+    return total_days;
+  }
+
+  return getSRDatestamp;
+})();
+
+
+// REAL DATE HANDLING.
+
+const DATE_FORMAT = 'YYYY-MM-DD';
+
+function journeyDuration(dateA, dateB) {
+  // The last day is part of the journey, so add 1 day.
+  return moment.duration(dateB - dateA).add(1, 'day');
+}
+
+function journeyDays(dateA, dateB) {
+  return Math.floor(journeyDuration(dateA, dateB).asDays());
+}
+
+function getRealDateInfo(startDate, endDate, day = null) {
+  const totalDays = journeyDays(startDate, endDate);
+
+  let currentDate, proportionComplete;
+  let currentDay = Number.parseInt(day || '', 10);
   if (isNaN(currentDay)) {
-    let currentDate = moment(new Date());
-    currentDay = dayLength(startDate, currentDate);
+    currentDate = moment();
+    currentDay = journeyDays(startDate, currentDate);
     proportionComplete = (currentDate - startDate) / (endDate - startDate);
   }
   else {
-    proportionComplete = currentDay / totalDays;
+    // Subtract half a day to represent midday on the selected day.
+    proportionComplete = (currentDay - 0.5) / totalDays;
+    // Wrap in moment to clone date that will be mutated.
+    currentDate = moment(startDate).add(moment.duration((endDate - startDate) * proportionComplete));
   }
 
   let daysUntil = null;
@@ -32,37 +136,130 @@ export function getJourneyInfo(queryParams) {
     currentDay = null;
   }
 
-  const message = 'Frodo is still living in the Shire before his journey begins';
-  const frodoMapYXPx = [660, 821];
-  const reading = {
-    volume: 'The Fellowship of the Ring',
-    book: 'I',
-    chapterNumber: 1,
-    chapterTitle: 'A Long Expected Party',
+  return {
+    currentDate,
+    currentDay,
+    daysUntil,
+    totalDays,
+    proportionComplete,
   };
-  const spotifyId = '6zW80jVqLtgSF1yCtGHiiD';
-  const imageInfo = {
-    src: 'journey-images/frodo-shire.jpg',
-    copyright: '© New Line Cinema',
+}
+
+
+// JOUNEY INFO.
+
+const MAX_PAST_FUTURE_EVENTS = 3;
+const FRODO_START_DATE = {ta_year: 3018, month: 9, day: 23};
+const FRODO_END_DATE = {ta_year: 3019, month: 3, day: 25};
+const FRODO_START_SR_DATESTAMP = getSRDatestamp(FRODO_START_DATE);
+const FRODO_END_SR_DATESTAMP = getSRDatestamp(FRODO_END_DATE);
+// The last day is part of the journey, so add 1 day.
+const FRODO_DAY_LENGTH = (FRODO_END_SR_DATESTAMP - FRODO_START_SR_DATESTAMP) + 1;
+
+function getRealDateForSRDatestamp(SRDatestamp, startRealDate, endRealDate) {
+  const proportionComplete = (SRDatestamp - FRODO_START_SR_DATESTAMP) / FRODO_DAY_LENGTH;
+  let dateDiff = moment.duration(journeyDuration(startRealDate, endRealDate) * proportionComplete);
+  // Wrap in moment to clone date that will be mutated.
+  return moment(startRealDate).add(dateDiff);
+}
+
+function getNearEvents(events, currentSRDatestamp, currentDate, startDate, endDate) {
+  let firstCurrentEventIndex, lastCurrentEventIndex;
+  for (var i = 0; i < events.length; i++) {
+    let event = events[i];
+    let eventSRDatestamp = getSRDatestamp({ta_year: event.ta_year, month: event.month, day: event.day});
+    if (eventSRDatestamp < currentSRDatestamp) {
+      // Keep updating the first current index to be the last past event.
+      firstCurrentEventIndex = i;
+    }
+    else if (eventSRDatestamp === currentSRDatestamp) {
+      // If this is the first time we have hit an actual match, then
+      // set the first current index.
+      if (lastCurrentEventIndex === undefined) {
+        firstCurrentEventIndex = i;
+      }
+      // Keep updating the last current index to be the last current event.
+      lastCurrentEventIndex = i;
+    }
+    else if (eventSRDatestamp > currentSRDatestamp) {
+      // If we hit a future event before any past or current event,
+      // then we set the current event to that date.
+      if (firstCurrentEventIndex === undefined) {
+        firstCurrentEventIndex = i;
+      }
+      break;
+    }
   }
-  const events = {
-    past: [
-      ['September 18', 'Gandalf escapes from Orthanc in the early hours. The Black Riders cross the Fords of Isen.'],
-      ['September 19', 'Gandalf comes to Edoras as a beggar, and is refused admittance.'],
-      ['September 20', 'Gandalf gains entrance to Edoras. Théoden commands him to go: "Take any horse, only be gone ere tomoorrow is old!"'],
-      ['September 21', 'Gandalf meets Shadowfax, but the horse will not allow him to come near. He follows Shadowfax far over the fields.'],
-    ],
-    current: [
-      ['September 22', 'The Black Riders reach Sarn Ford at evening; they drive off the guard of Rangers. Gandalf overtakes Shadowfax.'],
-    ],
-    future: [
-      ['September 23', 'Four Riders enter the Shire before dawn. The others pursue the Rangers eastward, and then return to watch the Greenway. A Black Rider comes to Hobbiton at nightfall. Frodo leaves Bag End. Gandalf having tamed Shadowfax rides from Rohan.'],
-      ['September 24', 'Gandalf crosses the Isen'],
-      ['September 26', 'The Old Forest. Frodo comes to Bombadil.'],
-      ['September 27', 'Gandalf crosses Greyflood. Second night with Bombadil.'],
-      ['September 28', 'The Hobbits captured by a Barrow-wight. Gandalf reaches Sarn Ford.'],
-    ],
+  // If we never explicitly set the lastCurrentEventIndex, ensure it is set.
+  if (lastCurrentEventIndex === undefined) {
+    lastCurrentEventIndex = firstCurrentEventIndex;
   }
+
+  function preprocessEvent(event) {
+    const SRDatestamp = getSRDatestamp({ta_year: event.ta_year, month: event.month, day: event.day});
+    return {
+      type: 'event',
+      date: getRealDateForSRDatestamp(SRDatestamp, startDate, endDate),
+      description: event.description,
+    };
+  }
+  const firstPastEventIndex = Math.max(0, (firstCurrentEventIndex - MAX_PAST_FUTURE_EVENTS));
+  const pastEvents = events.slice(firstPastEventIndex, firstCurrentEventIndex).map(preprocessEvent);
+  const currentEvents = events.slice(firstCurrentEventIndex, lastCurrentEventIndex + 1).map(preprocessEvent);
+  const futureEvents = events.slice(lastCurrentEventIndex + 1, lastCurrentEventIndex + MAX_PAST_FUTURE_EVENTS).map(preprocessEvent);
+
+  // Set "current" flags on current events.
+  currentEvents.forEach((event, index) => {
+    event.isCurrent = true;
+    if (index === 0) {
+      event.isFirstCurrent = true;
+    }
+  });
+
+  const nearEvents = pastEvents.concat(currentEvents, futureEvents);
+
+  // Mark the events we need to prefix with "year" markers.
+  let activeYear = currentDate.year();
+  nearEvents.forEach((event) => {
+    const eventYear = event.date.year();
+    if (eventYear !== activeYear) {
+      event.isNewYear = true;
+      activeYear = eventYear;
+    }
+  })
+
+  return nearEvents;
+}
+
+export async function getJourneyInfo(queryParams) {
+  const {title, start, end, day} = queryParams;
+  const startDate = moment(start, DATE_FORMAT);
+  const endDate = moment(end, DATE_FORMAT);
+
+  const {
+    currentDate,
+    currentDay,
+    daysUntil,
+    totalDays,
+    proportionComplete,
+  } = getRealDateInfo(startDate, endDate, day);
+  const currentSRDatestamp = Math.floor(FRODO_START_SR_DATESTAMP + (FRODO_DAY_LENGTH * proportionComplete));
+
+  const eventsPromise = loadCsv('events.csv');
+  const journeyPromise = loadCsv('journey.csv');
+  const events = (await eventsPromise).data;
+  const steps = (await journeyPromise).data;
+
+  let currentStep = {};
+  for (let step of steps) {
+    let stepSRDatestamp = getSRDatestamp({ta_year: step.ta_year, month: step.month, day: step.day});
+    if (stepSRDatestamp > currentSRDatestamp) {
+      break;
+    }
+    currentStep = step;
+  }
+
+  const nearEvents = getNearEvents(events, currentSRDatestamp, currentDate, startDate, endDate);
 
   return {
     title,
@@ -70,11 +267,19 @@ export function getJourneyInfo(queryParams) {
     daysUntil,
     totalDays,
     proportionComplete,
-    message,
-    reading,
-    frodoMapYXPx,
-    spotifyId,
-    imageInfo,
-    events,
+    message: currentStep.message,
+    reading: {
+      volume: currentStep.reading_volume,
+      book: currentStep.reading_book,
+      chapterNumber: currentStep.reading_chapter_number,
+      chapterTitle: currentStep.reading_chapter_title,
+    },
+    frodoMapYXPx: [currentStep.map_y, currentStep.map_x],
+    spotifyId: currentStep.spotify_id,
+    imageInfo: {
+      src: 'journey-images/' + currentStep.image_file,
+      copyright: '© ' + currentStep.image_copyright,
+    },
+    events: nearEvents,
   }
 }

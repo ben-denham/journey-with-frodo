@@ -45,10 +45,14 @@ function MiddleEarthMap({frodoMapYXPx}) {
   const mapCenter = mapBounds[1].map(x => x / 2);
   const initialMinZoom = -100;
 
-  const frodoMapYXMiles = [
-    (imageHW[0] - frodoMapYXPx[0]),
-    frodoMapYXPx[1]
-  ].map(x => x / pxPerMeter)
+  frodoMapYXPx = frodoMapYXPx.map(parseFloat);
+  let frodoMapYXMiles = null;
+  if (!frodoMapYXPx.some(isNaN)) {
+    frodoMapYXMiles = [
+      (imageHW[0] - frodoMapYXPx[0]),
+      frodoMapYXPx[1]
+    ].map(x => x / pxPerMeter)
+  }
 
   const iconScale = 0.2;
   const frodoIcon = new L.Icon({
@@ -97,7 +101,7 @@ function MiddleEarthMap({frodoMapYXPx}) {
       className={classes.map}>
       <ImageOverlay url={map} bounds={mapBounds} />
       <ScaleControl />
-      <Marker position={frodoMapYXMiles} icon={frodoIcon}></Marker>
+      {(frodoMapYXMiles) ? <Marker position={frodoMapYXMiles} icon={frodoIcon}></Marker> : ''}
     </Map>
   </div>
 }
