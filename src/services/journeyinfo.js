@@ -209,7 +209,7 @@ function getNearEvents(events, currentSRDatestamp, startDate, endDate) {
   const firstPastEventIndex = Math.max(0, (firstCurrentEventIndex - MAX_PAST_FUTURE_EVENTS));
   const pastEvents = events.slice(firstPastEventIndex, firstCurrentEventIndex).map(preprocessEvent);
   const currentEvents = events.slice(firstCurrentEventIndex, lastCurrentEventIndex + 1).map(preprocessEvent);
-  const futureEvents = events.slice(lastCurrentEventIndex + 1, lastCurrentEventIndex + MAX_PAST_FUTURE_EVENTS).map(preprocessEvent);
+  const futureEvents = events.slice(lastCurrentEventIndex + 1, lastCurrentEventIndex + 1 + MAX_PAST_FUTURE_EVENTS).map(preprocessEvent);
 
   // Set "current" flags on current events.
   currentEvents.forEach((event, index) => {
