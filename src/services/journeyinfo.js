@@ -151,7 +151,7 @@ function getRealDateInfo(startDate, endDate, day = null) {
 
 // JOUNEY INFO.
 
-const MAX_PAST_FUTURE_EVENTS = 3;
+const MAX_PAST_FUTURE_EVENTS = 5;
 const FRODO_START_DATE = {ta_year: 3018, month: 9, day: 23};
 const FRODO_END_DATE = {ta_year: 3019, month: 3, day: 25};
 const FRODO_START_SR_DATESTAMP = getSRDatestamp(FRODO_START_DATE);
