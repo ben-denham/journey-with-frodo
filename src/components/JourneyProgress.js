@@ -190,6 +190,21 @@ function EventList({events, className, style}) {
   const scrollerRef = React.createRef();
   const scrollTargetRef = React.createRef();
 
+  function formatEventDate({date, endDate}) {
+    if (date.year() !== endDate.year()) {
+      return date.format('DD MMMM YYYY') + ' - ' + endDate.format('DD MMMM YYYY');
+    }
+    else if (date.month() !== endDate.month()) {
+      return date.format('DD MMMM') + ' - ' + endDate.format('DD MMMM YYYY');
+    }
+    else if (date.day() !== endDate.day()) {
+      return date.format('DD') + ' - ' + endDate.format('DD MMMM YYYY');
+    }
+    else {
+      return date.format('DD MMMM YYYY');
+    }
+  }
+
   useEffect(() => {
     if (scrollerRef.current && scrollTargetRef.current) {
       // Timeout to give time for heights to settle.
@@ -205,10 +220,10 @@ function EventList({events, className, style}) {
   return <div className={clsx(classes.events, className)} style={style} ref={scrollerRef}>
     <table>
       <tbody>
-        {events.map(({date, description, isCurrent, isFirstCurrent, isNewYear}) =>
+        {events.map(({description, isCurrent, isFirstCurrent, isNewYear, ...restEvent}) =>
           <tr key={description} ref={isFirstCurrent ? scrollTargetRef : null}>
             <td className={clsx({[classes.currentEvent]: isCurrent})}>
-              {date.format('DD MMMM YYYY')}: {description}
+              {formatEventDate(restEvent)}: {description}
             </td>
           </tr>
         )}

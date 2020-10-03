@@ -161,9 +161,15 @@ const FRODO_DAY_LENGTH = (FRODO_END_SR_DATESTAMP - FRODO_START_SR_DATESTAMP) + 1
 
 function getRealDateForSRDatestamp(SRDatestamp, startRealDate, endRealDate) {
   const proportionComplete = (SRDatestamp - FRODO_START_SR_DATESTAMP) / FRODO_DAY_LENGTH;
-  let dateDiff = moment.duration(journeyDuration(startRealDate, endRealDate) * proportionComplete);
+  const dateDiff = moment.duration(journeyDuration(startRealDate, endRealDate) * proportionComplete);
   // Wrap in moment to clone date that will be mutated.
   return moment(startRealDate).add(dateDiff);
+}
+
+// Return 1 second less than a full SR day in real time duration.
+function getAlmostDayRealDuration(startRealDate, endRealDate) {
+  const oneDayProportion = 1 / FRODO_DAY_LENGTH;
+  return moment.duration(journeyDuration(startRealDate, endRealDate) * oneDayProportion);
 }
 
 function getNearEvents(events, currentSRDatestamp, startDate, endDate) {
@@ -200,9 +206,12 @@ function getNearEvents(events, currentSRDatestamp, startDate, endDate) {
 
   function preprocessEvent(event) {
     const SRDatestamp = getSRDatestamp({ta_year: event.ta_year, month: event.month, day: event.day});
+    const realDate = getRealDateForSRDatestamp(SRDatestamp, startDate, endDate);
     return {
       type: 'event',
-      date: getRealDateForSRDatestamp(SRDatestamp, startDate, endDate),
+      date: realDate,
+      // Wrap in moment to copy before mutation.
+      endDate: moment(realDate).add(getAlmostDayRealDuration(startDate, endDate)),
       description: event.description,
     };
   }
