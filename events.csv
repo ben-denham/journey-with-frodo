@@ -7,8 +7,8 @@ ta_year,month,day,description
 3018,9,19,"Gandalf, arriving as a beggar, is refused entry to Edoras."
 3018,9,20,"Gandalf enters Edoras, but is commanded by King Theoden to take any horse and leave."
 3018,9,21,"Shadowfax will not permit Gandalf to approach him, so Gandalf follows him over the fields of Rohan."
-3018,9,22,Gandalf passes Shadowfax. The Black Riders arrive at Sarn Ford in the evening and drive off the Rangers.
-3018,9,23,"Gandalf rides a tamed Shadowfax from Rohan. Four of the Black Riders pass into the Shire ere dawn, and the rest pursue the Rangers to the east before returning to watch the Greenway. One arrives enters Hobbiton at sundown. Frodo departs Bag End at night, beginning his journey."
+3018,9,22,"Gandalf passes Shadowfax. The Black Riders arrive at Sarn Ford in the evening and drive off the Rangers. The hundred and twenty-eighth birthday of Bilbo, and fiftieth birthday of Frodo."
+3018,9,23,"Gandalf rides a tamed Shadowfax from Rohan. Four of the Black Riders pass into the Shire ere dawn, and the rest pursue the Rangers to the east before returning to watch the Greenway. One enters Hobbiton at sundown. Frodo departs Bag End at night, beginning his journey."
 3018,9,24,"Gandalf crosses over the River Isen. Frodo and company cross paths with two Black Riders, and spend the night with Gildor and the High Elves near the Woody End."
 3018,9,25,"Frodo and company pass through Farmer Maggot’s farm, cross over the Brandywine River, and arrive at Crickhollow at night."
 3018,9,26,Frodo and company pass through the Old Forest and meet Tom Bombadil.
@@ -34,7 +34,7 @@ ta_year,month,day,description
 3019,1,13,"The Fellowship are attacked by Wolves before sunrise, and arrive at the West-gate of Moria at sunset. Gollum begins to follow Frodo."
 3019,1,14,The Fellowship spend the night in Hall Twenty-One of Khazad-dûm.
 3019,1,15,"The Fellowship cross the Bridge of Khazad-dûm, with Gandalf and the Balrog falling into the abyss below. The Fellowship reach Nimrodel long after sunset."
-3019,1,17,The Fellowship are brought to Caras Galadon in the evening.
+3019,1,17,The Fellowship are brought to Caras Galadhon in the evening.
 3019,1,23,Gandalf pursues the Balrog up the Endless Stair to the very peak of Zirak-zigil.
 3019,1,25,"Gandalf defeats the Balrog and casts it down. He passes away, and his body lies on the peak of Zirak-zigil."
 3019,2,14,"Frodo and Sam look into the Mirror of Galadriel. Gandalf returns to life, and lies on the peak of Zirak-zigil in a trance."
@@ -49,24 +49,68 @@ ta_year,month,day,description
 3019,2,30,"The Entmoot commences, and Éomer encounters Aragorn while returning to Edoras."
 3019,3,1,"Frodo, Sam, and Gollum begin the passage of the Dead Marshes at sunrise. In Fangorn Forest, the Entmoot continues, the Three Hunters encounter Gandalf the White; they ride for Edoras. Faramir departs Minas Tirith on an errand to Ithilien."
 3019,3,2,"Frodo, Sam, and Gollum reach the other side of the Dead Marshes. Gandalf, comes to Edoras and heals Théoden. Aragorn, Legolas, and Gimli ride with Théoden and the Rohirrim west to face Saruman. Erkenbrand is defeated in the Second Battle of the Fords of Isen. The Entmoot concludes in the afternoon, and the Ents march to Isengard, reaching it after sunset."
-3019,3,3,"Théoden and his forces retrest to Helm’s Deep, and the Battle of the Hornburg begins at night. The Ents finish the destruction of Isengard."
+3019,3,3,"Théoden and his forces retreat to Helm’s Deep, and the Battle of the Hornburg begins at night. The Ents finish the destruction of Isengard."
 3019,3,4,"Frodo, Sam, and Gollum reach the slag-mounds at the bounds of the Desolation of the Morannon. Théoden and Gandalf ride from Helm’s Deep toward Isengard."
 3019,3,5,"Frodo, Sam, and Gollum hide in sight of the Morannon, and depart at sunset. Théoden and Gandalf arrive at Isengard at midday, and parley with Saruman in Orthanc. At night, Pippin gazes into the palantír of Orthanc, the winged Nazgûl flies over their camp at Dol Baran, and Gandalf rides with Pippin for Minas Tirith."
 3019,3,6,"Aragorn is overtaken by the Dúnedain before sunrise. Théoden rides from the Hornburg towards Harrowdale, and Aragorn, Legolas, and Gimli leave later with the Dúnedain."
 3019,3,7,"Frodo, Sam, and Gollum are taken by Faramir to Henneth Annûn. Aragorn and the Dúnedain reach Dunharrow at sunset."
 3019,3,8,"Frodo, Sam, and Gollum head east from Henneth Annûn. Aragorn and the Dúnedain take the ‘Paths of the Dead’ at dawn, and reach Erech at midnight."
 3019,3,9,"Gandalf and Pippin arrive at Minas Tirith. Faramir departs Henneth Annûn. Aragorn and the Dúnedain travels from Erech to Calembel. Frodo, Sam, and Gollum, reach the Morgul-road at sunset. Théoden reaches Dunharrow. Darkness begins to pour out from Mordor."
-3019,3,10,"The darkness of Mordor causes the Dawnless Day. Frodo, Sam, and Gollum pass the Cross-roads, and spy the Morgul-host setting forth. An army from the Morannon captures Cair Andros and movies into Anórien. The Muster of Rohan takes place, and the Rohirrim ride forth from Harrowdale. Faramir, retreating from Osgiliath, is rescued by Gandalf before the Gates of Minas Tirith. Aragorn and the Dúnedain cross the river Ringló."
-3019,3,11,"Gollum visits Shelob, but nearly repents upon seeing Frodo asleep. Denethor sends Faramir to retake Osgiliath. Aragorn and the Dúnedain reache Linhir and cross into Lebennin. Eastern Rohan is invaded from the north, and the First assault on Lórien is made."
+3019,3,10,"The darkness of Mordor causes the Dawnless Day. Frodo, Sam, and Gollum pass the Cross-roads, and spy the Morgul-host setting forth. An army from the Morannon captures Cair Andros and moves into Anórien. The Muster of Rohan takes place, and the Rohirrim ride forth from Harrowdale. Faramir, retreating from Osgiliath, is rescued by Gandalf before the Gates of Minas Tirith. Aragorn and the Dúnedain cross the river Ringló."
+3019,3,11,"Gollum visits Shelob, but nearly repents upon seeing Frodo asleep. Denethor sends Faramir to retake Osgiliath. Aragorn and the Dúnedain reach Linhir and cross into Lebennin. Eastern Rohan is invaded from the north, and the First assault on Lórien is made."
 3019,3,12,"Gollum leads Frodo and Sam into Shelob’s lair. Faramir retreats to the Causeway Forts. Aragorn and the Dúnedain, aided by the Army of the Dead, drive the enemy towards Pelargir. Théoden and the Rohirrim camp under Minrimmon, and the Ents defeat the invaders of eastern Rohan."
-3019,3,13,"Frodo is captured by Orcs and taken to Cirith Ungol. The Pelennor is overrun, and Faramir is wounded. Aragorn and the Dúnedain reach Pelargir and capture the Corsair fleet. Théoden and the Rohirrim are led through Drúadan Forest by the Drúedain."
-3019,3,14,
-3019,3,15,
-3019,3,16,
-3019,3,17,
-3019,3,18,
-3019,3,19,
-3019,3,22,
-3019,3,23,
-3019,3,24,
-3019,3,25,
+3019,3,13,"Frodo is captured by Orcs and taken to Cirith Ungol. The Pelennor is overrun, and Faramir is wounded. Aragorn and the Dúnedain reach Pelargir and capture the Corsair fleet. Théoden and the Rohirrim enter Drúadan Forest."
+3019,3,14,Sam finds Frodo in the Tower of Cirith Ungol. The Siege of Minas Tirith begins. Théoden and the Rohirrim are led by the Drúedain to the Grey Wood.
+3019,3,15,"Before dawn, the Witch-king breaks the Gates of Minas Tirith, but is halted by the horns of the Rohirrim at cockrow. Théoden is slain by the Witch-king in the Battle of the Pelennor, and Aragorn, leading the Dúnedain and host of the fiefdoms into the Battle, raises the standard of Arwen Evenstar. Denethor burns himself on a pyre. Frodo and Sam set out from Cirith Ungol north along the Morgai. Thranduil drives back the forces of Dol Guldur in battle under the trees in Mirkwood, and the Second assault on Lórien is made."
+3019,3,16,"From the Morgai, Frodo and Sam look out over the orc camp toward Mount Doom. The last debate of the commanders of the West takes place."
+3019,3,17,"King Brand and King Dáin Ironfoot fall in the Battle of Dale, with many Dwarves and Men taking refuge in a besieged Erebor. Shagrat reaches Barad-dûr with Frodo’s elven cloak and mithril coat and Sam’s sword."
+3019,3,18,"Frodo and Sam come in sight of the Isenmouthe, but are overtaken by Orcs on the road from Durthang to Udûn. The Host of the West sets forth from Minas Tirith."
+3019,3,19,Frodo and Sam escape the Orcs and start their journey along the road to Barad-dûr. The Host of the West reaches the Morgul-vale.
+3019,3,22,The dreadful nightfall. Frodo and Sam leave the road to Barad-dûr and turn southward towards Mount Doom. The Third assault on Lórien is made.
+3019,3,23,"Frodo and Sam forsake their arms and gear. The Host of the West leaves Ithilien, and Aragorn dismisses the faint-hearted."
+3019,3,24,Frodo and Sam reach the feet of Mount Doom. The Host of the West camps in the Desolation of the Morannon.
+3019,3,25,"The Host of the West is surrounded on the Slag-hills in the Battle of the Morannon. Frodo and Sam reach the Sammath Naur, and Gollum seizes the Ring and falls in the Cracks of Doom. The downfall of Barad-dûr and the passing of Sauron."
+3019,3,27,Bard II and Thorin III Stonehelm liberate Dale from the enemy.
+3019,3,28,Celeborn crosses the River Anduin and begins the destruction of Dol Guldur.
+3019,4,6,"Celeborn and Thranduil meet in Mirkwood, and rename it The Wood of Greenleaves."
+3019,4,8,"Frodo and Sam, the Ring-bearers, are honoured on the Field of Cormallen."
+3019,5,1,"Aragorn is crowned King Elessar, and Elrond and Arwen set out from Rivendell."
+3019,5,8,Éomer and Éowyn leave for Rohan with the sons of Elrond.
+3019,5,20,Elrond and Arwen reach Lórien.
+3019,5,27,Arwen and her escort depart Lórien.
+3019,6,14,"The sons of Elrond meet Arwen and her escort, and bring them to Edoras."
+3019,6,16,Arwen and her escort depart Edoras for Minas Tirith.
+3019,6,25,"King Elessar, with Gandalf, finds the sapling of the White Tree."
+3019,special,one_lithe,Arwen and her escort enter Minas Tirith.
+3019,special,midyear,Elessar and Arwen are wed.
+3019,7,18,Éomer returns to Minas Tirith from Edoras.
+3019,7,19,The funeral escort of King Théoden departs Minas Tirith.
+3019,8,7,The funeral escort of King Théoden reaches Edoras.
+3019,8,10,Funeral of King Théoden.
+3019,8,14,"The Hobbits and other guests take leave of King Éomer, departing Edoras."
+3019,8,18,The Hobbits and company reach Helm’s Deep.
+3019,8,22,"The Hobbits and company come to Isengard, and take leave of Elessar, King of the West at sunset."
+3019,8,28,"The Hobbits and company overtake Saruman on the road, who now turns toward the Shire."
+3019,9,6,The Hobbits and company halt their journey within sight of the Mountains of Moria.
+3019,9,13,Celeborn and Galadriel depart the company. The Hobbits and company set out for Rivendell.
+3019,9,21,The Hobbits and company reach Rivendell.
+3019,9,22,"The hundred and twenty-ninth birthday of Bilbo, and fifty-first birthday of Frodo. Saruman enters the Shire."
+3019,10,5,The Hobbits and Gandalf depart Rivendell.
+3019,10,6,"The Hobbits and Gandalf cross the Ford of Bruinen, and Frodo feels the first return of the pain of the Morgul-knife."
+3019,10,28,The Hobbits and Gandalf reach Bree at sunset.
+3019,10,30,"The Hobbits and Gandalf leave Bree, and Gandalf departs at the border of the Old Forest to visit Bombadil. The Hobbits reach the Brandywine Bridge after sunset."
+3019,11,1,The Hobbits are arrested at Frogmorton.
+3019,11,2,The Hobbits reach Bywater and rouse the Shire-folk.
+3019,11,3,"The Hobbits lead the Shire-folk in the Battle of Bywater, deposing Saruman who is slain. The end of the War of the Ring."
+3020,3,13,Frodo is taken ill on the anniversary of his poisoning by Shelob.
+3020,4,6,Sam’s mallorn tree flowers in the Party Field.
+3020,5,1,Sam and Rose are wed.
+3020,special,midyear,"Frodo resigns the office of mayor, to which Will Whitfoot is restored."
+3020,9,22,"The hundred and thirtieth birthday of Bilbo, and fifty-second birthday of Frodo."
+3020,10,6,Frodo is again taken ill.
+3021,4,13,Frodo is again taken ill.
+3021,4,25,"Elanor the Fair, the daughter of Sam and Rose, is born. The first day of the Fourth Age in the reckoning of Gondor."
+3021,9,21,Frodo and Sam depart Hobbiton.
+3021,9,22,Frodo and Sam meet with the Last Riding of the Keepers of the Rings in Woody End.
+3021,9,29,"The company reaches the Grey Havens, and Frodo and Bilbo depart over Sea with the Three Keepers of the Rings. The end of the Third Age of Middle-earth."
+3021,10,6,Sam returns to Bag End.
