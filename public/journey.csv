@@ -18,7 +18,7 @@ ta_year,month,day,message,reading_volume,reading_book,reading_chapter_number,rea
 3018,10,18,"Frodo, Sam, Merry, Pippin, and Strider encounter Bilbo’s trolls, and are found by Glorfindel.",The Fellowship of the Ring,1,12,Flight to the Ford,625,1480,5rNmyrEfmwPMjBn2qYZlAN,bilbos-trolls.jpg,New Line Cinema
 3018,10,19,"Glorfindel is leading Frodo, Sam, Merry, Pippin, and Strider to the Ford of Bruinen.",The Fellowship of the Ring,1,12,Flight to the Ford,640,1500,5rNmyrEfmwPMjBn2qYZlAN,glorfindel.jpg,New Line Cinema
 3018,10,20,"Frodo, Sam, Merry, Pippin, Strider, and Glorfindel escape the Ringwraiths over the Ford of Bruinen, and are brought to Rivendell.",The Fellowship of the Ring,1,12,Flight to the Ford,655,1525,5rNmyrEfmwPMjBn2qYZlAN,bruinen.jpg,New Line Cinema
-3018,10,21,Frodo is receiving healing for the Morgul-knife wound from Elrond in Rivendell.,The Fellowship of the Ring,2,1,Many Meetings,635,1547,3wlNmUeoHnM1jcOcXxC6qI,frodo-healing.jpg,New Line Cinema
+3018,10,21,"Frodo is asleep in Rivendell, receiving healing from Elrond for the Morgul-knife wound.",The Fellowship of the Ring,2,1,Many Meetings,635,1547,3wlNmUeoHnM1jcOcXxC6qI,frodo-healing.jpg,New Line Cinema
 3018,10,24,"Frodo has awoken in Rivendell, and is reunited with his companions, Gandalf, and Bilbo in the Last Homely House.",The Fellowship of the Ring,2,1,Many Meetings,635,1547,3wlNmUeoHnM1jcOcXxC6qI,frodo-recovered.jpg,New Line Cinema
 3018,10,25,"At the Council of Elrond, Frodo declares he is willing to take the Ring to Mordor.",The Fellowship of the Ring,2,2,The Council of Elrond,635,1547,09e3onHcCEizlM8IW0t5ff,council-of-elrond.jpg,New Line Cinema
 3018,10,26,"Frodo is resting in the Last Homely House, awaiting word from scouts before he can leave Rivendell.",The Fellowship of the Ring,2,3,The Ring Goes South,635,1547,3wlNmUeoHnM1jcOcXxC6qI,rivendell.jpg,New Line Cinema
@@ -39,14 +39,14 @@ ta_year,month,day,message,reading_volume,reading_book,reading_chapter_number,rea
 3019,2,16,"Frodo and the Fellowship bid farewell to Lórien, taking boats down the Great River.",The Fellowship of the Ring,2,8,Farewell to Lórien,1036,1712,3tEW3BubSpSzJ6GoCT3cV8,farewell-to-lorien.jpg,New Line Cinema
 3019,2,17,Frodo and the Fellowship are rowing down the Great River.,The Fellowship of the Ring,2,9,The Great River,1265,1870,7HZ4BValzIE8zNjUrRIEHW,anduin.jpg,New Line Cinema
 3019,2,23,Frodo and the Fellowship’s boats are attacked by Orcs as they reach the rapids of Sarn Gebir.,The Fellowship of the Ring,2,9,The Great River,1418,1888,7HZ4BValzIE8zNjUrRIEHW,sarn-gebir.jpg,New Line Cinema
-3019,2,25,Frodo and the Fellowship pass the Argonath and reach Parth Galen.,The Fellowship of the Ring,2,10,The Breaking of the Fellowship,1451,1898,2nxNGEPuoayvcvKOXBBgUK,argonath.jpg,New Line Cinema
+3019,2,25,Frodo and the Fellowship pass the Argonath and reach Parth Galen.,The Fellowship of the Ring,2,10,The Breaking of the Fellowship,1451,1898,7HZ4BValzIE8zNjUrRIEHW,argonath.jpg,New Line Cinema
 3019,2,26,"The Fellowship breaks; Frodo and Sam cross to the eastern shore of the Great River, passing into the eastern Emyn Muil.",The Fellowship of the Ring,2,10,The Breaking of the Fellowship,1440,1910,4xaPCPyMiFDiw7SoksTBKo,breaking-of-the-fellowship.jpg,New Line Cinema
 3019,2,27,Frodo and Sam are traversing eastward over the Emyn Muil.,The Two Towers,4,1,The Taming of Smeagol,1440,1940,1OojcYAa6qk3Jg1n3sXSiF,eastern-emyn-muil.jpg,New Line Cinema
 3019,2,29,Frodo and Sam descend the Emyn Muil and encounter Gollum.,The Two Towers,4,1,The Taming of Smeagol,1440,1950,7DbCJTrxSN3EKgLuWJt4Cb,meet-gollum.jpg,New Line Cinema
 3019,2,30,Gollum leads Frodo and Sam out of the Emyn Muil and into the Dead Marshes.,The Two Towers,4,2,The Passage of the Marshes,1440,1990,5rTjlOO9TlPaCalNEoMOvh,edge-of-emyn-muil.jpg,New Line Cinema
 3019,3,1,Gollum is leading Frodo and Sam over the Dead Marshes.,The Two Towers,4,2,The Passage of the Marshes,1450,2050,3JOF2S1V3RXsU8SuxcfSho,dead-marshes.jpg,New Line Cinema
 3019,3,4,"Frodo, Sam, and Gollum reach the slag-mounds on the edge of the Desolation of the Morannon.",The Two Towers,4,2,The Passage of the Marshes,1460,2110,4WlaNoO3LQHAJOrOdpPmTD,slag-mounds.jpg,New Line Cinema
-3019,3,5,"Frod and, Sam attempt to enter Mordor by the Morannon, the Black Gate, but Gollum tells them of another way.",The Two Towers,4,3,The Black Gate is Closed,1460,2155,2v9YfAK8Cf5obcx3WFS4q7,black-gate.jpg,New Line Cinema
+3019,3,5,"Frodo and, Sam attempt to enter Mordor by the Morannon, the Black Gate, but Gollum tells them of another way.",The Two Towers,4,3,The Black Gate is Closed,1460,2155,2v9YfAK8Cf5obcx3WFS4q7,black-gate.jpg,New Line Cinema
 3019,3,6,"Frodo, Sam, and Gollum are heading south through Ithilien.",The Two Towers,4,4,Of Herbs and Stewed Rabbit,1520,2090,2DC5q7W5aikCEtvGNrklZf,ithilien.jpg,New Line Cinema
 3019,3,7,Frodo and Sam are taken by Faramir to Henneth Annûn.,The Two Towers,4,5,The Window on the West,1586,2088,6XOGDy905pbkZd7yVqbUuz,henneth-annun.jpg,New Line Cinema
 3019,3,8,"Frodo, Sam, and Gollum leave Henneth Annûn, heading south.",The Two Towers,4,7,Journey to the Cross-roads,1630,2095,0TpzAepHab0NofzyqV6As8,journey-to-cross-roads.jpg,New Line Cinema
@@ -55,34 +55,40 @@ ta_year,month,day,message,reading_volume,reading_book,reading_chapter_number,rea
 3019,3,11,"Frodo, Sam, and Gollum are climbing the Stairs of Cirith Ungol.",The Two Towers,4,8,The Stairs of Cirith Ungol,1662,2126,1ap3LLqOYv35dSA0KqJ0z4,stairs-of-cirith-ungol.jpg,New Line Cinema
 3019,3,12,Frodo and Sam are led by Gollum into Shelob’s Lair.,The Two Towers,4,9,Shelob’s Lair,1656,2148,51Om1IzCnoRv1gLJSwQdkm,shelobs-lair.jpg,New Line Cinema
 3019,3,13,"Poisoned by Shelob, Frodo is taken captive by the Orcs of Cirith Ungol.",The Two Towers,4,10,The Choices of Master Samwise,1657,2170,42sJ8y5Z3lUkmWFRdUUaUI,frodo-captured.jpg,New Line Cinema
-3019,3,14,Sam rescues Frodo from the Tower of Cirith Ungol.,The Return of the King,6,,,,,6dZ3PpoPcC7wtsoshGNXDo,,New Line Cinema
-3019,3,15,North from cirith ungol (look out over orc camp toward mount doom on 16th),The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,18,"Sight of Isenmouthe, but overtaken by Orcs",The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,19,"escape orcs, road to barad dur",The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,22,"leave road, turn south to mount doom",The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,23,forsake arms and gear,The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,24,feet of mount doom,The Return of the King,6,,,,,48ylCyEew76aaRcfSFyS9o,,New Line Cinema
-3019,3,25,crack of doom,The Return of the King,6,,,,,3iURgkltoANXq7VMhRIGkc,,New Line Cinema
-3019,3,26,Recovering,The Return of the King,6,,,,,1lIcdDpGlc2mO2LYA0f5KM,,New Line Cinema
-3019,4,8,"awake, field of cormallen",The Return of the King,6,,,,,1lIcdDpGlc2mO2LYA0f5KM,,New Line Cinema
-3019,4,9,???,The Return of the King,6,,,,,1lIcdDpGlc2mO2LYA0f5KM,,New Line Cinema
-3019,7,19,Travelling to Edoras,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,7,Reach Edoras,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,14,Travelling to Helm’s Deep,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,18,Reach Helm’s Deep,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,19,Travelling to Isengard,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,22,Reach Isengard,The Return of the King,6,,,,,,,New Line Cinema
-3019,8,23,Travelling northward from Isengard,The Return of the King,6,,,,,,,New Line Cinema
-3019,9,6,Staying in sight of the Misty Mountains,The Return of the King,6,,,,,,,New Line Cinema
-3019,9,13,Travelling to Rivendell,The Return of the King,6,,,,,,,New Line Cinema
-3019,9,21,Reach Rivendell,The Return of the King,6,,,,,,,New Line Cinema
-3019,10,5,Leave Rivendell,The Return of the King,6,,,,,,,New Line Cinema
-3019,10,6,Ford of Bruinen,The Return of the King,6,,,,,,,New Line Cinema
-3019,10,28,Reach Bree,The Return of the King,6,,,,,,,New Line Cinema
-3019,10,30,"Leave Bree, reach Brandywine Bridge",The Return of the King,6,,,,,,,New Line Cinema
-3019,11,1,Arrested at Frogmorton,The Return of the King,6,,,,,,,New Line Cinema
-3019,11,2,"Reach Bywater, rouse Shire-folk",The Return of the King,6,,,,,,,New Line Cinema
-3019,11,3,"Battle of Bywater, end of third age",The Return of the King,6,,,,,,,New Line Cinema
-3019,11,4,Frodo living in Hobbiton,The Return of the King,6,,,,,,,New Line Cinema
-3021,9,22,Travelling from Hobbiton to Grey Havens,The Return of the King,6,,,,,6caCfb9Hg5NlUfXg9nRSnm,,New Line Cinema
-3021,9,29,Grey Havens,The Return of the King,6,,,,,6caCfb9Hg5NlUfXg9nRSnm,,New Line Cinema
+3019,3,14,Sam rescues Frodo from the Tower of Cirith Ungol.,The Return of the King,6,1,The Tower of Cirith Ungol,1657,2170,6dZ3PpoPcC7wtsoshGNXDo,sam-cirith-ungol.jpg,New Line Cinema
+3019,3,15,Frodo and Sam are heading north along the Morgai from Cirith Ungol.,The Return of the King,6,2,The Land of Shadow,1603,2148,48ylCyEew76aaRcfSFyS9o,leaving-cirith-ungol.jpg,New Line Cinema
+3019,3,16,"Continuing north along the Morgai, Frodo and Sam look out over the Orc camp toward Mount Doom.",The Return of the King,6,2,The Land of Shadow,1583,2148,48ylCyEew76aaRcfSFyS9o,look-over-orc-camp.jpg,New Line Cinema
+3019,3,17,Frodo and Sam are traversing the northern reaches of the Morgai.,The Return of the King,6,2,The Land of Shadow,1568,2148,48ylCyEew76aaRcfSFyS9o,mordor-mountains.jpg,New Line Cinema
+3019,3,18,"Frodo and Sam come within sight of the Isenmouthe, but are overtaken by a band of Orcs heading to the Black Gate.",The Return of the King,6,2,The Land of Shadow,1550,2150,48ylCyEew76aaRcfSFyS9o,mordor-orc-band.jpg,New Line Cinema
+3019,3,19,"Frodo and Sam escape the Orc band, and start along the road to Barad-dûr.",The Return of the King,6,2,The Land of Shadow,1550,2203,48ylCyEew76aaRcfSFyS9o,mordor-orc-escape.jpg,New Line Cinema
+3019,3,20,Frodo and Sam are following the eastward road toward Barad-dûr.,The Return of the King,6,3,Mount Doom,1564,2246,48ylCyEew76aaRcfSFyS9o,mordor-walking.jpg,New Line Cinema
+3019,3,22,"Leaving the road to Barad-dûr, Frodo and Sam are heading southward toward Mount Doom.",The Return of the King,6,3,Mount Doom,1575,2256,48ylCyEew76aaRcfSFyS9o,barad-dur-road.jpg,New Line Cinema
+3019,3,23,"Abandoning their arms and gear, Frodo and Sam are trudging the final distance to Mount Doom.",The Return of the King,6,3,Mount Doom,1588,2256,48ylCyEew76aaRcfSFyS9o,mordor-abandon-gear.jpg,New Line Cinema
+3019,3,24,"Reaching the feet of Mount Doom, Frodo and Sam are beginning their treacherous ascent.",The Return of the King,6,3,Mount Doom,1602,2256,1bHjXna9QGqwsDwsxpj0f7,mordor-slopes.jpg,New Line Cinema
+3019,3,25,"Reaching the Sammath Naur on Mount Doom, Frodo and Sam complete their quest to destroy the One Ring.",The Return of the King,6,3,Mount Doom,1604,2266,3iURgkltoANXq7VMhRIGkc,crack-of-doom.jpg,New Line Cinema
+3019,3,26,Frodo and Sam are asleep and recovering on the Field of Cormallen.,The Return of the King,6,4,The Field of Cormallen,1595,2065,5r04nCsGXiTBsyd0yBys7j,recovering.jpg,New Line Cinema
+3019,4,8,"Frodo and Sam awake, reuinte with the Fellowship, and are honoured on the Field of Cormallen.",The Return of the King,6,4,The Field of Cormallen,1595,2065,1lIcdDpGlc2mO2LYA0f5KM,hobbits-honoured.jpg,New Line Cinema
+3019,4,9,Field of Cormallen,The Return of the King,6,4,The Field of Cormallen,1595,2065,1lIcdDpGlc2mO2LYA0f5KM,fellowship-reunited.jpg,New Line Cinema
+3019,4,29,Travelling to Minas Tirith,The Return of the King,6,4,The Field of Cormallen,,,1lIcdDpGlc2mO2LYA0f5KM,Page 148,New Line Cinema
+3019,5,1,"Aragorn crowned, come to Minas Tirith",The Return of the King,6,5,The Steward and the King,,,1lIcdDpGlc2mO2LYA0f5KM,,New Line Cinema
+3019,5,2,Minas Tirith,The Return of the King,6,5,The Steward and the King,,,,,New Line Cinema
+3019,7,19,Travelling to Edoras,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,7,Reach Edoras,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,14,Travelling to Helm’s Deep,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,18,Reach Helm’s Deep,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,19,Travelling to Isengard,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,22,Reach Isengard,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,8,23,Travelling northward from Isengard,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,9,6,Staying in sight of the Misty Mountains,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,9,13,Travelling to Rivendell,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,9,21,Reach Rivendell,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,10,5,Leave Rivendell,The Return of the King,6,6,Many Partings,,,,,New Line Cinema
+3019,10,6,Ford of Bruinen,The Return of the King,6,7,Homeward Bound,,,,,New Line Cinema
+3019,10,28,Reach Bree,The Return of the King,6,7,Homeward Bound,,,,,New Line Cinema
+3019,10,30,"Leave Bree, reach Brandywine Bridge",The Return of the King,6,7,Homeward Bound,,,,,New Line Cinema
+3019,11,1,Arrested at Frogmorton,The Return of the King,6,8,The Scouring of the Shire,,,,,New Line Cinema
+3019,11,2,"Reach Bywater, rouse Shire-folk",The Return of the King,6,8,The Scouring of the Shire,,,,,New Line Cinema
+3019,11,3,"Battle of Bywater, end of third age",The Return of the King,6,8,The Scouring of the Shire,,,,,New Line Cinema
+3019,11,4,Frodo living in Hobbiton,The Return of the King,6,9,The Grey Havens,,,,,New Line Cinema
+3021,9,22,Travelling from Hobbiton to Grey Havens,The Return of the King,6,9,The Grey Havens,,,6caCfb9Hg5NlUfXg9nRSnm,,New Line Cinema
+3021,9,29,Grey Havens,The Return of the King,6,9,The Grey Havens,,,6caCfb9Hg5NlUfXg9nRSnm,,New Line Cinema
