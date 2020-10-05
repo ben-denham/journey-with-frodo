@@ -168,8 +168,10 @@ function getRealDateForSRDatestamp(SRDatestamp, startRealDate, endRealDate) {
 
 // Return 1 second less than a full SR day in real time duration.
 function getAlmostDayRealDuration(startRealDate, endRealDate) {
-  const oneDayProportion = 1 / FRODO_DAY_LENGTH;
-  return moment.duration(journeyDuration(startRealDate, endRealDate) * oneDayProportion);
+  // 1 second less than one day.
+  const almostOneDay = 1 - (1 / 86400);
+  const almostOneDayProportion = almostOneDay / FRODO_DAY_LENGTH;
+  return moment.duration(journeyDuration(startRealDate, endRealDate) * almostOneDayProportion);
 }
 
 function getNearEvents(events, currentSRDatestamp, startDate, endDate) {
