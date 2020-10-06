@@ -59,6 +59,7 @@ const useStyles = createUseStyles({
   },
   imageWrapper: {
     margin: 'auto',
+    marginBottom: '1.2em',
     width: '100%',
     '& img': {
       width: '100%',
@@ -125,7 +126,7 @@ const useStyles = createUseStyles({
     fontWeight: 'bold',
   },
   mainGrid: {
-    marginBottom: '1.2em',
+    marginBottom: '0.5em',
     [largeBreakpoint]: {
       display: 'flex',
     },
@@ -331,12 +332,10 @@ function JourneyProgress() {
             <Spotify spotifyId={spotifyId} />
           </div>
           <EventList className={classes.sidebarGridItem} style={{flex: 1}} events={events} />
-          <div className={classes.sidebarGridItem}>
-            <JourneyImage className={classes.sidebarGridItem}  imageInfo={imageInfo} />
-          </div>
         </div>
       </div>
     </div>
+    <JourneyImage className={classes.sidebarGridItem} imageInfo={imageInfo} />
     <Links shareQuote={`${title} - ${dayMessage} - See my progress on Journey with Frodo!`} />
   </div>
 }
