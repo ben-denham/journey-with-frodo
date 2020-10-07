@@ -251,13 +251,18 @@ export async function getJourneyInfo(queryParams) {
   const events = (await eventsPromise).data;
   const steps = (await journeyPromise).data;
 
-  let currentStep = {};
+  let currentStep = null;
   for (let step of steps) {
     let stepSRDatestamp = getSRDatestamp({ta_year: step.ta_year, month: step.month, day: step.day});
-    currentStep = step;
     if (stepSRDatestamp > currentSRDatestamp) {
+      // Ensure that even if the current date is before all dates, we
+      // still pick the first step.
+      if (currentStep === null) {
+        currentStep = step;
+      }
       break;
     }
+    currentStep = step;
   }
 
   const nearEvents = getNearEvents(events, currentSRDatestamp, startDate, endDate);
