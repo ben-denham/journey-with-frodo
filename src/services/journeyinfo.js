@@ -254,10 +254,10 @@ export async function getJourneyInfo(queryParams) {
   let currentStep = {};
   for (let step of steps) {
     let stepSRDatestamp = getSRDatestamp({ta_year: step.ta_year, month: step.month, day: step.day});
+    currentStep = step;
     if (stepSRDatestamp > currentSRDatestamp) {
       break;
     }
-    currentStep = step;
   }
 
   const nearEvents = getNearEvents(events, currentSRDatestamp, startDate, endDate);
