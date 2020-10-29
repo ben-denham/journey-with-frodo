@@ -117,20 +117,23 @@ function journeyDays(dateA, dateB) {
 }
 
 function getRealDateInfo(startDate, endDate, day = null) {
+  const totalDuration = journeyDuration(startDate, endDate)
   const totalDays = journeyDays(startDate, endDate);
 
   let currentDate, proportionComplete;
-  let currentDay = Number.parseInt(day || '', 10);
+  let currentDay = Number.parseFloat(day || '', 10);
   if (isNaN(currentDay)) {
     currentDate = moment();
     currentDay = journeyDays(startDate, currentDate);
-    proportionComplete = (currentDate - startDate) / (endDate - startDate);
+    proportionComplete = (currentDate - startDate) / totalDuration;
   }
   else {
-    // Subtract half a day to represent midday on the selected day.
-    proportionComplete = (currentDay - 0.5) / totalDays;
+    // Day 1.5 = halfway through day 2.
+    proportionComplete = currentDay / totalDays;
+    // Ceil currentDay for formatting.
+    currentDay = Math.ceil(currentDay);
     // Wrap in moment to clone date that will be mutated.
-    currentDate = moment(startDate).add(moment.duration((endDate - startDate) * proportionComplete));
+    currentDate = moment(startDate).add(moment.duration(totalDuration * proportionComplete));
   }
 
   let daysUntil = null;
